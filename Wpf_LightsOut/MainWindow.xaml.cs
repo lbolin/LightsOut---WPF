@@ -16,13 +16,55 @@ namespace Wpf_LightsOut
         
         public MainWindow()
         {
-            InitializeComponent();
+            
 
             game = new LightsOutGame();
-            SizeThree.IsChecked = true;
+            InitializeComponent();
             CreateGrid();
             DrawGrid();
+            
         }
+
+        private void OnDragMoveWindow(object sender,MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
+
+        private void CloseCommand_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void CloseCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            if (game.IsGameOver())
+            {
+                e.CanExecute = true;
+
+            }
+            else
+                e.CanExecute = false;
+
+        }
+
+        // CommandBinding Command = "New" Executed="NewCommand_Executed"/>
+        //<CommandBinding Command = "Help" Executed="HelpCommand_Executed"/>
+
+        private void NewCommand_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            game.NewGame();
+            DrawGrid();
+        }
+
+        private void HelpCommand_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            AboutWindow about = new AboutWindow();
+            about.Owner = this;
+            about.ShowDialog();
+
+        }
+
+
 
         private void CreateGrid()
         {     
@@ -106,48 +148,23 @@ namespace Wpf_LightsOut
             }
         }
 
-        private void HelpAbout_Click(object sender, RoutedEventArgs e)
-        {
-            AboutWindow about = new AboutWindow();
-            about.Owner = this;
-            about.ShowDialog();
-        }
+        //private void HelpAbout_Click(object sender, RoutedEventArgs e)
+        //{
+        //    AboutWindow about = new AboutWindow();
+        //    about.Owner = this;
+        //    about.ShowDialog();
+        //}
 
-        private void SizeChanged_Click(object sender, RoutedEventArgs e)
-        {
-            MenuItem menuItem = sender as MenuItem;
-            SizeThree.IsChecked = false;
-            SizeFive.IsChecked = false;
-            SizeSeven.IsChecked = false;
-            switch (menuItem.Name)
-            {
-                case "SizeThree":
-                    SizeThree.IsChecked = true;
-                    game.GridSize = 3;
-                    break;
-                case "SizeFive":
-                    SizeFive.IsChecked = true;
-                    game.GridSize = 5;
-                    break;
-                case "SizeSeven":
-                    SizeSeven.IsChecked = true;
-                    game.GridSize = 7;
-                    break;
-            }
+       
+        //private void MenuExit_Click(object sender, RoutedEventArgs e)
+        //{
+        //    Close();
+        //}
 
-            CreateGrid();
-            DrawGrid();
-        }
-
-        private void MenuExit_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
-
-        private void MenuNew_Click(object sender, RoutedEventArgs e)
-        {
-            game.NewGame();
-            DrawGrid();
-        }
+        //private void MenuNew_Click(object sender, RoutedEventArgs e)
+        //{
+        //    game.NewGame();
+        //    DrawGrid();
+        //}
     }
 }
