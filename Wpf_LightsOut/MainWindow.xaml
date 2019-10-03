@@ -37,11 +37,7 @@
                     <Setter Property="FontSize" Value="10"/>
                     <Setter Property="FontStyle" Value="Oblique"/>
                 </Trigger>
-                <DataTrigger Binding="{Binding ElementName=exitButton, Path=IsEnabled}" Value ="false">
-                    <Setter Property="TextBlock.Foreground" Value="White"/>
-                    <Setter Property="Background" Value="AliceBlue"/>
-                </DataTrigger>
-                
+
             </Style.Triggers>
         </Style>
     </Window.Resources>

@@ -16,13 +16,15 @@ namespace Wpf_LightsOut
         
         public MainWindow()
         {
-            
 
+            
             game = new LightsOutGame();
             InitializeComponent();
             CreateGrid();
             DrawGrid();
-            
+            exitButton.IsEnabled = false;
+            exitButton.Opacity = .5;
+
         }
 
         private void OnDragMoveWindow(object sender,MouseButtonEventArgs e)
@@ -51,6 +53,8 @@ namespace Wpf_LightsOut
         private void NewCommand_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             game.NewGame();
+            exitButton.IsEnabled = false;
+            exitButton.Opacity = .5;
             DrawGrid();
         }
 
@@ -141,6 +145,8 @@ namespace Wpf_LightsOut
 
             if (game.IsGameOver())
             {
+                exitButton.IsEnabled = true;
+                exitButton.Opacity = 1;
                 MessageBox.Show(this, "Congratulations!  You've won!", "Lights Out!",
                     MessageBoxButton.OK, MessageBoxImage.Information);
             }
