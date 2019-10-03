@@ -47,8 +47,6 @@ namespace Wpf_LightsOut
 
         }
 
-        // CommandBinding Command = "New" Executed="NewCommand_Executed"/>
-        //<CommandBinding Command = "Help" Executed="HelpCommand_Executed"/>
 
         private void NewCommand_Executed(object sender, ExecutedRoutedEventArgs e)
         {
@@ -148,23 +146,5 @@ namespace Wpf_LightsOut
             }
         }
 
-        //private void HelpAbout_Click(object sender, RoutedEventArgs e)
-        //{
-        //    AboutWindow about = new AboutWindow();
-        //    about.Owner = this;
-        //    about.ShowDialog();
-        //}
-
-       
-        //private void MenuExit_Click(object sender, RoutedEventArgs e)
-        //{
-        //    Close();
-        //}
-
-        //private void MenuNew_Click(object sender, RoutedEventArgs e)
-        //{
-        //    game.NewGame();
-        //    DrawGrid();
-        //}
     }
 }
