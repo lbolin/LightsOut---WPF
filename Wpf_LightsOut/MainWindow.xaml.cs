@@ -117,14 +117,14 @@ namespace Wpf_LightsOut
                     if (game.GetGridValue(r, c))
                     {
                         // On
-                        rect.Fill = Brushes.White;
-                        rect.Stroke = Brushes.Black;
+                        rect.Fill = Brushes.Navy;
+                        rect.Stroke = Brushes.DarkRed;
                     }
                     else
                     {
                         // Off
-                        rect.Fill = Brushes.Black;
-                        rect.Stroke = Brushes.White;
+                        rect.Fill = Brushes.DarkRed;
+                        rect.Stroke = Brushes.Navy;
                     }
                 }
             }

@@ -31,7 +31,7 @@
             <Style.Triggers>
                 <Trigger Property="Button.IsMouseOver" Value="True">
                     <Setter Property="FontSize" Value="15" />
-                    <Setter Property="Foreground" Value="AliceBlue" />
+                    <Setter Property="FontStyle" Value="Italic" />
                 </Trigger>
                 <Trigger Property="Button.IsPressed" Value="True">
                     <Setter Property="FontSize" Value="10"/>

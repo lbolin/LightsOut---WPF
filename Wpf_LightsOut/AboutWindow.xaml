@@ -15,6 +15,6 @@
         <Label Content="By Lauren Bolin" HorizontalContentAlignment="Center" Height="25" VerticalAlignment="Bottom" />
         <Image Margin="30,27,28,31" Name="image1" Stretch="Fill" Source="Cardinals.png" />
         <Button Grid.Column="1" MinWidth="80" Margin="46,0,43,3" Content="OK" Click="Button_Click" Height="22" VerticalAlignment="Bottom" />
-        <TextBlock Grid.Column="1" Margin="0,12,3,49" TextWrapping="Wrap" TextAlignment="Center">Turn all the lights off (black) to win the game!</TextBlock>
+        <TextBlock Grid.Column="1" Margin="0,12,3,49" TextWrapping="Wrap" TextAlignment="Center" Text="Turn all the lights off (Red) to win the game!"/>
     </Grid>
 </Window>
