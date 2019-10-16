@@ -16,13 +16,15 @@ namespace Wpf_LightsOut
         
         public MainWindow()
         {
-            
 
+            
             game = new LightsOutGame();
             InitializeComponent();
             CreateGrid();
             DrawGrid();
-            
+            exitButton.IsEnabled = false;
+            exitButton.Opacity = .5;
+
         }
 
         private void OnDragMoveWindow(object sender,MouseButtonEventArgs e)
@@ -47,12 +49,12 @@ namespace Wpf_LightsOut
 
         }
 
-        // CommandBinding Command = "New" Executed="NewCommand_Executed"/>
-        //<CommandBinding Command = "Help" Executed="HelpCommand_Executed"/>
 
         private void NewCommand_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             game.NewGame();
+            exitButton.IsEnabled = false;
+            exitButton.Opacity = .5;
             DrawGrid();
         }
 
@@ -115,14 +117,14 @@ namespace Wpf_LightsOut
                     if (game.GetGridValue(r, c))
                     {
                         // On
-                        rect.Fill = Brushes.White;
-                        rect.Stroke = Brushes.Black;
+                        rect.Fill = Brushes.Navy;
+                        rect.Stroke = Brushes.DarkRed;
                     }
                     else
                     {
                         // Off
-                        rect.Fill = Brushes.Black;
-                        rect.Stroke = Brushes.White;
+                        rect.Fill = Brushes.DarkRed;
+                        rect.Stroke = Brushes.Navy;
                     }
                 }
             }
@@ -143,28 +145,12 @@ namespace Wpf_LightsOut
 
             if (game.IsGameOver())
             {
+                exitButton.IsEnabled = true;
+                exitButton.Opacity = 1;
                 MessageBox.Show(this, "Congratulations!  You've won!", "Lights Out!",
                     MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 
-        //private void HelpAbout_Click(object sender, RoutedEventArgs e)
-        //{
-        //    AboutWindow about = new AboutWindow();
-        //    about.Owner = this;
-        //    about.ShowDialog();
-        //}
-
-       
-        //private void MenuExit_Click(object sender, RoutedEventArgs e)
-        //{
-        //    Close();
-        //}
-
-        //private void MenuNew_Click(object sender, RoutedEventArgs e)
-        //{
-        //    game.NewGame();
-        //    DrawGrid();
-        //}
     }
 }

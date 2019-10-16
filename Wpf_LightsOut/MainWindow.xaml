@@ -15,25 +15,29 @@
 
     <Window.Resources>
         <ControlTemplate x:Key="MyButtonTemplate" TargetType="Button">
-            <Border Name="Border" BorderThickness="2" CornerRadius="10"
-                BorderBrush="BlueViolet">
-                <ContentPresenter HorizontalAlignment="Center"
-                              VerticalAlignment="Center"        
+            <Border Name="Border" BorderThickness="2"
+                BorderBrush="White" Background="Gray">
+                <ContentPresenter 
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Center" 
                               TextBlock.FontWeight="Bold"  
-                              TextBlock.Foreground="Firebrick"
+                              TextBlock.Foreground="Navy"
                               Content="{TemplateBinding Content}" />
             </Border>
         </ControlTemplate>
         
-        <Style x:Key="MyButtonStyle" >
-            <Setter Property="Button.Opacity" Value="0.5" />
+        <Style x:Key="MyButtonStyle" TargetType="Button" >
+            
             <Style.Triggers>
                 <Trigger Property="Button.IsMouseOver" Value="True">
-                    <Setter Property="Button.Opacity" Value="1" />
+                    <Setter Property="FontSize" Value="15" />
+                    <Setter Property="FontStyle" Value="Italic" />
                 </Trigger>
                 <Trigger Property="Button.IsPressed" Value="True">
-                    <Setter Property="" Value=""></Setter>
+                    <Setter Property="FontSize" Value="10"/>
+                    <Setter Property="FontStyle" Value="Oblique"/>
                 </Trigger>
+
             </Style.Triggers>
         </Style>
     </Window.Resources>
