@@ -49,7 +49,6 @@ namespace Wpf_LightsOut
 
         }
 
-
         private void NewCommand_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             game.NewGame();
@@ -65,8 +64,6 @@ namespace Wpf_LightsOut
             about.ShowDialog();
 
         }
-
-
 
         private void CreateGrid()
         {     
